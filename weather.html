@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f1f1;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background-color: #d32f2f; /* Reddish Pink */
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        /* Main Section */
+        section {
+            margin: 30px auto;
+            max-width: 800px;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Weather List Styles */
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        ul li {
+            margin-bottom: 15px;
+        }
+
+        ul li a {
+            text-decoration: none;
+            color: #c2185b; /* Darker Reddish Pink */
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+        }
+
+        ul li a:hover {
+            color: #f48fb1; /* Light Pink Hover Color */
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #283593;
+            color: white;
+            margin-top: 40px;
+        }
+
+        /* Back to Main Page Button */
+        .back-to-main {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            text-align: center;
+            padding: 10px;
+            background-color: #c2185b; /* Reddish Pink */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-to-main:hover {
+            background-color: #f48fb1; /* Lighter Pink Hover Color */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Weather</h1>
+    </header>
+    
+    <section>
+        <ul>
+            <li>McKinney: 42°F - <a href="https://www.weather.com/weather/today/l/USTX0496:1:US" target="_blank">Forecast</a></li>
+            <li>Muck: 98.6°F (unless feverish) - no forecast available</li>
+            <li>LA: 52°F - <a href="https://www.weather.com/weather/today/l/USCA0638:1:US" target="_blank">Forecast</a></li>
+            <li>Rolla: 34°F - <a href="https://www.weather.com/weather/today/l/USMO1044:1:US" target="_blank">Forecast</a></li>
+            <li>Toronto: 28°F - <a href="https://www.weather.com/weather/today/l/CAON0613:1:CA" target="_blank">Forecast</a></li>
+            <li>Waco: 48°F - <a href="https://www.weather.com/weather/today/l/USTX0846:1:US" target="_blank">Forecast</a></li>
+        </ul>
+    </section>
+
+    <a href="index.html" class="back-to-main">Back to Main Page</a>
+
+    <footer>
+        <p>© 2025 Council BA League - All Rights Reserved</p>
+    </footer>
+</body>
+</html>

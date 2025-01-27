@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Made in China State of the Franchise</title>
+    <style>
+        canvas {
+            border: 1px solid #000;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Made in China State of the Franchise</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Back to Main Page</a></li>
+                <li><a href="state_of_the_franchise.html">Back to State of the Franchise</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h2>PAGE CONSTRUCTION CURRENTLY IN PROGRESS</h2>
+        <p>Building, Slowly but Surely… Enjoy Some Pong in the mean time </p>
+        <p2>Social Movement Comparison: Maoist Movement- not just because of China connection, building slowly and methodically </p2>
+        <canvas id="pong" width="800" height="400"></canvas>
+    </section>
+
+    <footer>
+        <p>© 2025 Council BA League - All Rights Reserved</p>
+    </footer>
+
+    <script>
+        const canvas = document.getElementById("pong");
+        const ctx = canvas.getContext("2d");
+
+        // Create the pong paddle
+        const paddleWidth = 10, paddleHeight = 100;
+        const leftPaddle = { x: 0, y: canvas.height / 2 - paddleHeight / 2, width: paddleWidth, height: paddleHeight, dy: 4 };
+        const rightPaddle = { x: canvas.width - paddleWidth, y: canvas.height / 2 - paddleHeight / 2, width: paddleWidth, height: paddleHeight, dy: 4 };
+
+        // Ball properties
+        const ball = { x: canvas.width / 2, y: canvas.height / 2, radius: 10, speed: 5, dx: 5, dy: 5 };
+
+        // Draw paddles and ball
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "#000";
+            ctx.fillRect(leftPaddle.x, leftPaddle.y, leftPaddle.width, leftPaddle.height);
+            ctx.fillRect(rightPaddle.x, rightPaddle.y, rightPaddle.width, rightPaddle.height);
+
+            ctx.beginPath();
+            ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+            ctx.fillStyle = "#000";
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        // Update positions of paddles and ball
+        function update() {
+            ball.x += ball.dx;
+            ball.y += ball.dy;
+
+            if (ball.y + ball.radius > canvas.height || ball.y - ball.radius < 0) {
+                ball.dy *= -1;
+            }
+
+            if (ball.x + ball.radius > canvas.width || ball.x - ball.radius < 0) {
+                ball.dx *= -1;
+            }
+
+            // Paddle collision logic
+            if (ball.x - ball.radius < leftPaddle.x + leftPaddle.width && ball.y > leftPaddle.y && ball.y < leftPaddle.y + leftPaddle.height) {
+                ball.dx *= -1;
+            }
+
+            if (ball.x + ball.radius > rightPaddle.x && ball.y > rightPaddle.y && ball.y < rightPaddle.y + rightPaddle.height) {
+                ball.dx *= -1;
+            }
+        }
+
+        // Move paddles with keys
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "ArrowUp" && rightPaddle.y > 0) {
+                rightPaddle.y -= rightPaddle.dy;
+            } else if (event.key === "ArrowDown" && rightPaddle.y + paddleHeight < canvas.height) {
+                rightPaddle.y += rightPaddle.dy;
+            }
+            if (event.key === "w" && leftPaddle.y > 0) {
+                leftPaddle.y -= leftPaddle.dy;
+            } else if (event.key === "s" && leftPaddle.y + paddleHeight < canvas.height) {
+                leftPaddle.y += leftPaddle.dy;
+            }
+        });
+
+        function gameLoop() {
+            draw();
+            update();
+            requestAnimationFrame(gameLoop);
+        }
+
+        gameLoop();
+    </script>
+</body>
+</html>
